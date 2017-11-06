@@ -14,8 +14,31 @@ const defaultArrWords = [
     { id: 13, en: 'against', vn: 'phản đối', memorized: true, isShow: false },
     { id: 14, en: 'arrange', vn: 'sắp xếp', memorized: false, isShow: false }
 ];
+
 const arrWordsReducer = (state = defaultArrWords, action) => {
-    return state;
+if (action.type === 'TOGGLE_MEMORIZED') {
+    return state.map(e => {
+        if (e.id !== action.id) return e;
+        return { ...e, memorized: !e.memorized };
+    });
+}
+    if (action.type === 'TOGGLE_SHOW') {
+        return state.map(e => {
+            if (e.id !== action.id) return e;
+            return { ...e, isShow: !e.isShow };
+        });
+    }
+    if (action.type === 'ADD_WORD') {
+        return [{
+            id: state.length + 1,
+            en: action.en,
+            vn: action.vn,
+            memorized: false,
+            isShow: false
+        }].concat(state);
+    }
+
+return state;
 };
 
 export default arrWordsReducer;
