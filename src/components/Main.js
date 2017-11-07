@@ -24,7 +24,7 @@ class Main extends Component {
               {this.props.isAdding ?<Form/> : null }
                 <FlatList         
                     data={this.getWordList()}
-                    renderItem={({item}) => <Word myWord={item}/>}
+                    renderItem={({ item} ) => <Word myWord={item}/>}
                     keyExtractor={item => item.id}
                 />
             </View> 
