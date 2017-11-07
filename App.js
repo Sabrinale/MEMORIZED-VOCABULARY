@@ -1,12 +1,12 @@
 import React from 'react';
-import App2 from './src2/index';
+import App1 from './src/index';
 
 export default class App extends React.Component {
  
   render() {
     
     return (
-       <App2/>
+       <App1/>
     );
   }
 }
